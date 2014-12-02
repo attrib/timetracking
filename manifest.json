@@ -1,0 +1,21 @@
+{
+  "name": "Cocomore Timetracking",
+  "description": "Automatically time track a period of time",
+  "version": "0.1",
+  "permissions": [
+    "tabs","storage","https://intranet.cocomore.com/"
+  ],
+  "background": {
+    "page":"bg.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://intranet.cocomore.com/*"
+      ],
+      "js": ["jquery-1.11.1.min.js", "content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "manifest_version": 2
+}
