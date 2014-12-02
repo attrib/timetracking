@@ -4,9 +4,9 @@ Minor tool to automatic track a period of time on one single project with 8.4h
 
 ## Install
 
-* [Download file](build/timetracking.crx)
+* [Download file](https://github.com/attrib/timetracking/raw/master/build/timetracking.crx)
 * Open Chrome
-* Goto: chrome://extensions/
+* Goto: [chrome://extensions/](chrome://extensions/)
 * Drag&Drop the downloaded file into the window
 * Accept the permission
 
