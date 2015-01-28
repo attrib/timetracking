@@ -4,11 +4,13 @@ Minor tool to automatic track a period of time on one single project with 8.4h
 
 ## Install
 
-* [Download file](https://github.com/attrib/timetracking/raw/master/build/timetracking.crx)
-* Open Chrome
-* Goto: [chrome://extensions/](chrome://extensions/)
-* Drag&Drop the downloaded file into the window
-* Accept the permission
+* ~~[Download file](https://github.com/attrib/timetracking/raw/master/build/timetracking.crx)~~
+* ~~Open Chrome~~
+* ~~Goto: [chrome://extensions/](chrome://extensions/)~~
+* ~~Drag&Drop the downloaded file into the window~~
+* ~~Accept the permission~~
+
+* [Download over WebStore](https://chrome.google.com/webstore/detail/cocomore-timetracking/fmdfjdlmmcdmiiajollfcbnjcghpbcng)
 
 ## How to use
 

@@ -110,7 +110,7 @@ function date_output(date) {
   return date.getFullYear() + "-" + month + "-" + day;
 }
 
-Array.prototype.getUnique = function(){
+Array.prototype.getUnique = function() {
   var u = {}, a = [];
   for(var i = 0, l = this.length; i < l; ++i){
     if(u.hasOwnProperty(this[i])) {
@@ -120,4 +120,4 @@ Array.prototype.getUnique = function(){
     u[this[i]] = 1;
   }
   return a;
-}
+};
