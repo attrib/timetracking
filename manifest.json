@@ -7,10 +7,12 @@
   "permissions": [
     "tabs",
     "storage",
-    "https://intranet.cocomore.com/"
+    "https://intranet.cocomore.com/",
+    "https://xkcd.com/"
   ],
   "background": {
-    "page":"bg.html"
+    "scripts": ["redirect.js"],
+    "persistent": false
   },
   "content_scripts": [
     {

@@ -1,3 +1,30 @@
+// Start Page
+if ($("body.not-logged-in.section-news")) {
+  // Remove old news
+  $('.views-field-created span').each(function() {
+    var content = $(this).text(),
+        date = new Date(content.substr(6, 4) + "-" + content.substr(3, 2) + "-" + content.substr(0, 2)),
+        diff = new Date() - date;
+    if (diff > (1000*60*60*24*30*6)) {
+      $(this).parent().parent().remove();
+    }
+  });
+  // Add my news
+  $('.view-News .view-content').append(createNews("Intranet Tracking v0.2 online", "https://chrome.google.com/webstore/detail/cocomore-timetracking/fmdfjdlmmcdmiiajollfcbnjcghpbcng", "<p>Welcome to the improved version of the Intranet time tracking Chrome extension.</p><br><p>For feature request, concerns or similar visit the <a href='https://github.com/attrib/timetracking/issues'>Bug tracker</a>.</p><br><p>Have a nice day and don't forget to track ;)</p><br>", "31.01.2014 - 23:23"));
+  $.get("https://xkcd.com/info.0.json", function (data) {
+    $('.view-News .view-content').prepend(createNews(data.title, "https://xkcd.com", '<p><img id="xkcd" src="'+data.img+'"></p><br>', data.day+'.'+data.month+'.'+data.year));
+    $("#xkcd").attr('alt', data.alt).attr('title', data.alt);
+  });
+}
+
+function createNews(title, href, text, dateString) {
+  return $('<div class="views-row">' +
+  '<div class="views-field-title"><span class="field-content"><a href="'+href+'"><h3>'+title+'</h3></a></span></div>' +
+  '<div class="views-field-created"><span class="field-content">'+dateString+'</span></div>' +
+  '<div class="views-field-teaser"><div class="field-content">'+text+'</div></div>' +
+  '</div>');
+}
+
 // Project page - add date selector
 if ($(".node-type-stormproject").size() > 0) {
 
@@ -26,7 +53,7 @@ if ($(".node-type-stormproject").size() > 0) {
     data.month_to_process = month_to_process.getUnique();
     chrome.storage.local.set(data, function() {
       var href = $('.coco-user-info-block .my-profil a').attr('href');
-      chrome.extension.sendRequest({redirect: "https://intranet.cocomore.com" + href + "/timetrackings?date=" + data.month_to_process[0] + "-01"});
+      chrome.runtime.sendMessage({redirect: "https://intranet.cocomore.com" + href + "/timetrackings?date=" + data.month_to_process[0] + "-01"});
     });
   });
 
@@ -52,11 +79,11 @@ if (document.location.pathname == "/node/add/stormtimetracking") {
 if ($(".node-type-stormtimetracking").size() > 0) {
   chrome.storage.local.get(null, function(data) {
     if (data && data.dates.length > 0) {
-      chrome.extension.sendRequest({redirect: "https://intranet.cocomore.com/node/add/stormtimetracking?project_nid=" + data.project_nid});
+      chrome.runtime.sendMessage({redirect: "https://intranet.cocomore.com/node/add/stormtimetracking?project_nid=" + data.project_nid});
     }
     else {
       chrome.storage.local.set({});
-      chrome.extension.sendRequest({redirect: "https://intranet.cocomore.com/storm/my-timetrackings"});
+      chrome.runtime.sendMessage({redirect: "https://intranet.cocomore.com/storm/my-timetrackings"});
     }
   });
 }
@@ -82,15 +109,15 @@ if ($(".node-type-stormperson").size() > 0) {
       chrome.storage.local.set(data, function() {
         if (data.month_to_process.length > 0) {
           var href = $('.coco-user-info-block .my-profil a').attr('href');
-          chrome.extension.sendRequest({redirect: "https://intranet.cocomore.com" + href + "/timetrackings?date=" + data.month_to_process[0] + "-01"});
+          chrome.runtime.sendMessage({redirect: "https://intranet.cocomore.com" + href + "/timetrackings?date=" + data.month_to_process[0] + "-01"});
         }
         else {
           if (data.dates.length > 0) {
-            chrome.extension.sendRequest({redirect: "https://intranet.cocomore.com/node/add/stormtimetracking?project_nid=" + data.project_nid});
+            chrome.runtime.sendMessage({redirect: "https://intranet.cocomore.com/node/add/stormtimetracking?project_nid=" + data.project_nid});
           }
           else {
             chrome.storage.local.set({});
-            chrome.extension.sendRequest({redirect: "https://intranet.cocomore.com/storm/my-timetrackings"});
+            chrome.runtime.sendMessage({redirect: "https://intranet.cocomore.com/storm/my-timetrackings"});
           }
         }
       });
