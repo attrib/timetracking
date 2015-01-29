@@ -15,7 +15,7 @@ Minor tool to automatic track a period of time on one single project with 8.4h
 ## How to use
 
 * Login to the intranet
-* Goto the project you want to track (node/xxxx)
+* Goto the project you want to track (node/xxxx) or track directly from the dashboard
 * Select the start and end date
 * Click submit and lean back and see how the extension does the tracking for you
 
