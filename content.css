@@ -1,0 +1,21 @@
+#coco-timetracker-chrome .content {
+    padding: 10px !important;
+    border: 0 solid #a0a0a0;
+    border-top-width: 1px;
+}
+
+.coco-timetracker-chrome label {
+    margin-right: 10px;
+}
+
+.coco-timetracker-chrome label:after {
+    content: ":"
+}
+
+.coco-timetracker-chrome input, .coco-timetracker-chrome select {
+    margin-right: 10px;
+}
+
+.coco-timetracker-chrome input.submit {
+    padding: 3px;
+}

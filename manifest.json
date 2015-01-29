@@ -3,7 +3,7 @@
   "short_name": "cocotime",
   "author": "Karl Fritsche",
   "description": "Automatically time track a period of time",
-  "version": "0.1",
+  "version": "0.2",
   "permissions": [
     "tabs",
     "storage",
@@ -20,6 +20,7 @@
         "https://intranet.cocomore.com/*"
       ],
       "js": ["lib/jquery-1.11.1.min.js", "content.js"],
+      "css": ["content.css"],
       "run_at": "document_end"
     }
   ],
